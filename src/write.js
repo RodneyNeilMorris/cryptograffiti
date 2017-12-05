@@ -1,8 +1,8 @@
 var CG_WRITE_ENCODE_TIME = 0;
 var CG_WRITE_CHUNKS = [];
-var CG_WRITE_MIN_BTC_OUTPUT = 0.00000546;
+var CG_WRITE_MIN_BTC_OUTPUT = 0.00000273;
 var CG_WRITE_MAX_TX_SIZE = 100000;
-var CG_WRITE_MAX_FILE_SIZE_KiB = 50;
+var CG_WRITE_MAX_FILE_SIZE_KiB = 500;
 var CG_WRITE_FILE_NAME  = null;
 var CG_WRITE_FILE_TYPE  = null;
 var CG_WRITE_FILE_BYTES = null;
@@ -352,9 +352,9 @@ function cg_write_update(instant) {
     //var tx_fee  = Math.ceil(tx_size/1000) * CG_WRITE_FEE_PER_KB;
     var tx_fee  = (tx_size*CG_SAT_BYTE)/100000000.0;
     var tx_cost = CG_WRITE_MIN_BTC_OUTPUT*outputs + tx_fee;
-    tx_cost += CG_WRITE_MIN_BTC_OUTPUT; // Minimum donation added by default.
-    tx_cost += 0.00005000; // Average from ticket random modifier of [0 - 9999]
-    tx_cost *= 1.1; // Encoder service fee is 10% of the TX cost.
+    //tx_cost += CG_WRITE_MIN_BTC_OUTPUT; // Minimum donation added by default.
+    //tx_cost += 0.00005000; // Average from ticket random modifier of [0 - 9999]
+    //tx_cost *= 1.1; // Encoder service fee is 10% of the TX cost.
 
     if (outputs === 0) {
         tx_size = 0;
